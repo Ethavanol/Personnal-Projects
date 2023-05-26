@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.container>.bloc {
+    vertical-align: middle;
+    border-left: solid 1px black;
+}
+
+.container>.bloc>p {
+    color: gray;
+    font-style: italic ;    
+}
+
+.container>* {
+    padding: 10px;
+    flex: 1;
+}

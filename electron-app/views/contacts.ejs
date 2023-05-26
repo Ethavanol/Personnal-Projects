@@ -1,0 +1,124 @@
+<!-- views/account.ejs -->
+
+<html>
+  <head>
+    <title>Contacts</title>
+    <link rel="stylesheet" type="text/css" href="css/contacts.css">
+    <script src="js/contacts.js"></script>
+  </head>
+  <body>
+    
+    <%- include ('../partials/headerConnected') %>
+
+    <div class="wrapper">
+      <div class="allcontacts">
+        <div class="titlebloc">My Contacts</div>
+        <div class="contactbloc whitebloc">
+          <h4>My friends</h4>
+          <%if(typeof allContacts !== 'undefined'){
+            if(allContacts.userFriends != null && allContacts.userFriends != undefined) {
+            for (const user of allContacts.userFriends) { %>
+              <section class="contactseul">
+                <h5><%= user.username %></h5>
+                <p><%= user.name %> <%= user.surname %></p>
+                <li class="hamburgercontact"><img src="/img/hamburger.png">
+                  <ul class="linkshamburger">
+                    <li><a href="/chat">Send a message</a></li>
+                    <li><a href="#">Add a note</a></li>
+                    <form id="formReject" method="post" action="/deleteAContact.html">
+                      <input name="userRequested" type="hidden" value=<%=user.idUser %>
+                      <li><a href="#" onClick="document.getElementById('formReject').submit();">Delete this friend</a></li>
+                    </form>
+                  </ul>
+                </li>
+              </section>
+            <%}
+            }
+          }%>
+        </div>
+
+        <div class="contactbloc">
+          <h4>My friends requests</h4>
+            <%if(typeof allContacts !== 'undefined'){
+                if(allContacts.userRequested != null && allContacts.userRequested != undefined) {
+                for (const user of allContacts.userRequested) { %>
+                  <section class="contactseul">
+                    <h5><%= user.username %></h5>
+                    <p><%= user.name %> <%= user.surname %></p>
+                    <li class="hamburgercontact"><img src="/img/hamburger.png">
+                      <ul class="linkshamburger">
+                        <form id="formReject" method="post" action="/deleteAContact.html">
+                          <input name="userRequested" type="hidden" value=<%=user.idUser %>
+                          <li><a href="#" onClick="document.getElementById('formReject').submit();">Cancel this request</a></li>
+                        </form>
+                      </ul>
+                    </li>
+                  </section>
+                <%}
+              }
+            }%>
+        </div>
+        <div class="contactbloc whitebloc">
+          <h4>My friends invitations</h4>
+            <%if(typeof allContacts !== 'undefined'){
+                if(allContacts.userInvitations != null && allContacts.userInvitations != undefined) {
+                for (const user of allContacts.userInvitations) { %>
+                  <section class="contactseul">
+                    <h5><%= user.username %></h5>
+                    <p><%= user.name %> <%= user.surname %></p>
+                    <li class="hamburgercontact"><img src="/img/hamburger.png">
+                      <ul class="linkshamburger">
+                        <form id="formAccept" method="post" action="/acceptAContact.html">
+                          <input name="userRequested" type="hidden" value=<%=user.idUser %>
+                          <li><a href="#" onClick="document.getElementById('formAccept').submit();">Accept Invitation</a></li>
+                        </form>
+                        <form id="formReject" method="post" action="/deleteAContact.html">
+                          <input name="userRequested" type="hidden" value=<%=user.idUser %>
+                          <li><a href="#" onClick="document.getElementById('formReject').submit();">Reject Invitation</a></li>
+                        </form>
+                      </ul>
+                    </li>
+                  </section>
+                  <!--<form method="post" action="/acceptAContact.html">
+                    <input name="userRequested" type="hidden" value=<%=user.idUser %>
+                    <h5><%= user.username %></h5>
+                    <input src="img/accept.png" type=image value=submit width="20" height="20" >
+                  </form>
+                  <form method="post" action="/rejectAContact.html">
+                    <input name="userRequested" type="hidden" value=<%=user.idUser %>
+                    <p><%= user.surname %> <%= user.name %></p>
+                    <input src="img/reject.png" type=image value=submit width="20" height="20" >
+                  </form>-->
+                <%}
+              }
+            }%>
+        </div>
+      </div>
+      <div class="searchcontain">
+        <section class="bubblesearch">
+          <div class="title">Search a Contact</div>
+          <br/>
+          <form method="post" action="/searchAContact.html" value="form" onsubmit="return test('<%=session.username%>')">
+            <label for="search-bar">Search someone:</label>
+            <input type="search" id="searchbar" name="searchbar" required>
+            <input type="submit" value="Search">
+          </form>
+
+          <% if (typeof resultSearched !== 'undefined'){ %>
+            <p><%= resultSearched.username %></label> -  <%= resultSearched.surname %> <%= resultSearched.name %></p>
+            
+            <% if (checkContact == false){ %>
+              <form method="post" action="/addAContact.html">
+                <input name="userRequested" type="hidden" value=<%=resultSearched.idUser %>>
+                <input type="submit" value="Add Friend">
+              </form>
+          <% } else { %>
+            <p> Vous avez déjà créé une relation avec cet utilisateur </p>
+          <% }
+          } %>
+        </section>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!-- views/index.ejs -->
+
+<html>
+  <head>
+    <title>Page d'accueil</title>
+    <link rel="stylesheet" type="text/css" href="css/test.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <script src="js/functions.js"></script>
+  </head>
+  <body>
+    <% if (session && session.isConnected){ %>
+      <%- include ('../partials/headerConnected') %>
+    <% } else { %>
+      <%- include ('../partials/header') %>
+    <% } %>
+    <h1>Bienvenue sur la page d'accueil</h1>
+    <br/><br/>
+    <% if (session && session.isConnected){ %>
+      Vous êtes bien connecté en tant que <%= session.username %>. <br/>
+      Votre id est le suivant : <%= session.idUser %>.
+    <% } else { %>
+      <p>Vous n'êtes pas connecté.</p>
+    <% } %>
+
+  </body>
+</html>
+

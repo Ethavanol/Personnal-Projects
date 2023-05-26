@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Log In</title>
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" type="text/css" href="css/header.css">
+    </head>
+    <body>
+
+        <% if (session && session.isConnected){ %>
+            <%- include ('../partials/headerConnected') %>
+          <% } else { %>
+            <%- include ('../partials/header') %>
+          <% } %>
+
+    <br/><br/>
+    <div class="container">
+        <div class="bloc">
+            
+            <h1>Log In</h1><br/>
+            <form method="post" action="/postLogin.html">
+            Username : <input type="text" name="usernameLogin" required><br/>
+            Password : <input type="password" name="passwordLogin" required><br/><br/>
+            <input type="submit" value="Log In">
+            </form>
+
+        </div>
+        <div class="bloc">
+            <p>No account ? Sign Up</p>
+            <h1>Sign up</h1><br/>
+            <form method="post" action="/postSignup.html">
+            Name : <input type="text" name="nameSignup" required><br/>
+            Surname : <input type="text" name="surnameSignup" required><br/>
+            Username : <input type="text" name="usernameSignup" required><br/>
+            Password : <input type="password" name="passwordSignup" required><br/><br/>
+            <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </div>
+    </body>
+</html>

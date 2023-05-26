@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css" href="css/header.css">
+
+<header>
+    <nav class="navbar">
+        <p class="logo">RACISMO NO</p>
+        <div class="nav-links">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/login">Log In</a></li>
+                <li><a href="/moving">Petit Jeu</a></li>
+            </ul>
+        </div>
+        <img class="menu-hamburger" src="img/hamburger-header.png" width="40px" height="40px">
+        <!--<img src="img/hamburger.png" alt="" class="menu-hamburger">-->
+    </nav>
+</header>
+<script>
+    const menuHamburger = document.querySelector(".menu-hamburger")
+    const navLinks = document.querySelector(".nav-links")
+
+    menuHamburger.addEventListener('click',()=>{
+    navLinks.classList.toggle('mobile-menu')
+    })
+</script>

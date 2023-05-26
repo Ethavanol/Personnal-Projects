@@ -1,0 +1,38 @@
+<!-- views/account.ejs -->
+
+<html>
+  <head>
+    <title>À propos de mon compte</title>
+    <link rel="stylesheet" href="../styles/test.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/test.css">
+  <!--  <style>
+      body {
+        background-color: #f2f2f2;
+      }
+
+      h1 {
+        color: blue;
+        font-size: 24px;
+      }
+    </style>-->
+  </head>
+  <body>
+
+    <% if (session && session.isConnected){ %>
+      <%- include ('../partials/headerConnected') %>
+    <% } else { %>
+      <%- include ('../partials/header') %>
+    <% } %>
+    
+    <h1>À propos de mon compte</h1>
+    <% if (session && session.isConnected) { %>
+      <p>Bienvenue <%= session.username %> !</p>
+      <p>Prénom : <%= session.name %></p>
+      <p>Nom de Famille : <%= session.surname %></p>
+    <% } %>
+
+    <%- include ('../partials/footer') %>
+
+  </body>
+</html>
+
