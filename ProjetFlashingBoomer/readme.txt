@@ -1,3 +1,5 @@
+Projet Réalisé à l'époque de ma seconde année de Prépa Intégrée.
+
 Bienvenue dans le projet Flashing BOomer créé par LETRUNG Ethan et MARIN Hugo.
 
 Ce jeu oppose deux joueurs ayant des roles differents.
