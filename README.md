@@ -1,3 +1,3 @@
-Here are somes of my personnal projects I have developed.
+Here are some personnal projects I have developed.
 
 Vous retrouverez ici les projets personnels que j'ai pu développer.
