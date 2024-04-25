@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "preview card or edit note in extra window linked from the reviewer",
+    "properties": {
+        "card_preview__default_is_answer": {
+            "type": "boolean",
+            "default": true,
+            "description": ""
+        },
+        "card_preview__override_toggle_from_default_for_notetypes": {
+            "type": "array",
+            "description": ""
+        },
+        "edit note externally": {
+            "type": "boolean",
+            "default": true,
+            "description": ""
+        },
+        "browser_table_add_prefix_when_copying": {
+            "type": "boolean",
+            "default": true,
+            "description": ""
+        },
+        "linked_cards_show_answer": {
+            "type": "boolean",
+            "default": true,
+            "description": ""
+        },
+        "review, preview: make nid cid clickable": {
+            "type": "boolean",
+            "default": true,
+            "description": ""
+        },
+        "prefix_nid": {
+            "type": "string",
+            "default": "nidd",
+            "description": ""
+        },
+        "prefix_cid": {
+            "type": "string",
+            "default": "cidd",
+            "description": ""
+        },
+        "context menu entries in reviewer": {
+            "type": "boolean",
+            "default": true,
+            "description": ""
+        },
+        "context menu entries in editor": {
+            "type": "boolean",
+            "default": true,
+            "description": ""
+        },
+        "editor context menu show card-id (cid) copy entries in Browser": {
+            "type": "boolean",
+            "default": true,
+            "description": ""
+        },
+        "editor context menu show note-id (nid) copy entries in": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Browser",
+                    "EditCurrent", 
+                    "EditNoteWindowFromThisLinkAddon"
+                ]
+            }
+        }
+    }
+}

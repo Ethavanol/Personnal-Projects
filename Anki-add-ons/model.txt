@@ -1,0 +1,55 @@
+-------Recto
+
+<div class="front-content">
+    {{Recto}}
+</div>
+
+
+------Verso
+
+<div class="front-content">
+   {{Recto}}
+</div>
+<div class="back-content">
+<div class="important-info">
+   {{Verso}}
+</div>
+  	{{optionnal:+}}
+	{{optionnal:CartesLiees}}
+</div>
+
+<div class="tags">
+     {{Tags:Tags}}
+</div>
+
+-------Style
+
+.card {
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
+.front-content {
+    margin-top: 30px;
+    text-align: center;
+         margin-bottom: 60px;
+}
+
+.back-content{
+    margin-top: 30px;
+    text-align: left;
+    margin-left: 22%;
+    margin-right: 22%;
+    .important-info{
+        margin-bottom: 20px;
+    }
+}
+
+
+.tags{
+		position: fixed;
+    bottom: 10%;
+    right: 10%;
+}
